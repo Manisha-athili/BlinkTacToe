@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Instructions from "../components/Instructions";
-import './CategorySelection.css';
+// import './CategorySelection.css';
 import Emojipicker from "../components/EmojiPicker";
 
 

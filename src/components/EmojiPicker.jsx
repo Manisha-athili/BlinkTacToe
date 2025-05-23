@@ -3,13 +3,27 @@ import { useState } from "react";
 const categories = {
     Animals : ['🐶', '🐱', '🐵', '🐰'],
     Food : ['🍕', '🍟', '🍔', '🍩'],
-    Sports : ['⚽', '🏀', '🏈', '🎾']
+    Sports : ['⚽', '🏀', '🏈', '🎾'],
+    Nature : ['🌲','🍃','🌻','🍂','🌈'],
+    Love: ['💗','💖','💘','💛','💝']
+
 };
 
 const Emojipicker=({onStart})=>{
    const [player1,setPlayer1] = useState('');
    const [player2,setPlayer2] = useState('');
 
+   const handleStart = ()=> {
+    if(player1 && player2 && player1 != player2){
+        onStart({
+            player1: categories[player1],
+            player2: categories[player2]
+
+        })  
+    }else {
+            alert('Please select different categories for both players')
+        }
+   }
 
     return(
         <>
@@ -27,11 +41,14 @@ const Emojipicker=({onStart})=>{
             </select>
         </div>
         <div>
-            <label>Player  Category:</label>
-            <select
-                onChange={(e)}
-            ></select>
-
+            <label>Player 2 Category:</label>
+        <select onChange={(e) => setPlayer2(e.target.value)}>
+          <option value="">Select</option>
+          {Object.keys(categories).filter((cat)=> cat !== player1).map((cat) => (
+            <option key={cat}>{cat}</option>
+          ))}
+        </select>
+         <button onClick={handleStart}>Start Game</button>
         </div>
 
         </>
