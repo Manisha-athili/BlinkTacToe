@@ -1,0 +1,50 @@
+.gameplay-container {
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(120deg, #e0f7fa, #e1bee7);
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.side-panel {
+  width: 20%;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  background-color: #ffffffaa;
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.game-area {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.emoji-list {
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .gameplay-container {
+    flex-direction: column;
+  }
+
+  .side-panel {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .emoji-list {
+    font-size: 1.5rem;
+  }
+}

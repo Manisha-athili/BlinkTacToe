@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import './GameBoard.css';
+import { useState } from 'react';
+import StatusBar from './StatusBar';
+import '../styles/GameBoard.css'
 
 const winningCombinations = [
   [0, 1, 2],
@@ -33,10 +34,9 @@ const GameBoard = ({ playerEmojis, onWin }) => {
     const emojiList = playerEmojis[currentPlayer];
     const randomEmoji = emojiList[Math.floor(Math.random() * emojiList.length)];
 
-    const updatedMoves = { ...moves };
-    const newBoard = [...board];
+    const updatedMoves = { ...moves }
+    const newBoard = [...board]
 
-    // Remove oldest move if there are already 3
     if (updatedMoves[currentPlayer].length === 3) {
       const [oldest] = updatedMoves[currentPlayer];
       newBoard[oldest] = null;
@@ -52,7 +52,7 @@ const GameBoard = ({ playerEmojis, onWin }) => {
     if (checkWin(currentPlayer)) {
       onWin(currentPlayer);
     } else {
-      setCurrentPlayer(currentPlayer === 'player1' ? 'player2' : 'player1');
+      setCurrentPlayer(currentPlayer === 'player1'?'player2' : 'player1');
     }
   };
 
@@ -72,6 +72,6 @@ const GameBoard = ({ playerEmojis, onWin }) => {
       </div>
     </>
   );
-};
+}
 
-export default GameBoard;
+export default GameBoard
