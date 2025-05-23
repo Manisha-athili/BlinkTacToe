@@ -21,7 +21,7 @@ const Emojipicker=({onStart})=>{
 
         })  
     }else {
-            alert('Please select different categories for both players')
+            alert('Please select categories Properly')
         }
    }
 
@@ -34,7 +34,7 @@ const Emojipicker=({onStart})=>{
             onChange={(e)=>setPlayer1(e.target.value)}>
                 <option value="">Select</option>
                 {
-                    Object.keys(categories).map((categorie)=>(
+                    Object.keys(categories).filter((cat)=> cat !== player2).map((categorie)=>(
                         <option key={categorie}>{categorie}</option>
                     ))
                 }

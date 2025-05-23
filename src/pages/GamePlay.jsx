@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import GameBoard from '../components/GameBoard';
+import StatusBar from '../components/StatusBar';
 import WinnerModal from '../components/WinnerModal';
 import '../styles/GamePlay.css';
 
 const GamePlay = ()=>{
     const [playerEmojis, setPlayerEmojis] = useState({});
-    const [winner, setWinner] = useState(null)
+    const [winner, setWinner] = useState(null);
+    const [currentPlayer,setCurrentPlayer] = useState('player1')
 
     useEffect(() => {
     const data = JSON.parse(localStorage.getItem('playerEmojis'));
@@ -24,7 +26,10 @@ const GamePlay = ()=>{
         {Object.keys(playerEmojis).length > 0 && (
           <GameBoard
             playerEmojis={playerEmojis}
+            currentPlayer = {currentPlayer}
+            setCurrentPlayer = {setCurrentPlayer}
             onWin={(winnerPlayer) => setWinner(winnerPlayer)}
+            
           />
         )}
       </div>

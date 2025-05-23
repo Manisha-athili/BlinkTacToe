@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CategorySelection from './pages/CategorySelection';
 import GamePlay from './pages/GamePlay';

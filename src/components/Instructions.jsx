@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import '../styles/Instructions.css'
 
 const Instructions = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -28,10 +29,21 @@ const Instructions = () => {
 
   return (
     <div className="instructions">
-      <h2 onClick={() => setShow(!show)} style={{ cursor: isMobile ? 'pointer' : 'default' }}>
-        Game Rules {isMobile && <span>{show ? '▲' : '▼'}</span>}
+     <h2 
+        onClick={() => isMobile && setShow(!show)} 
+        className={isMobile ? 'clickable' : ''}
+      >
+        🎮 Game Rules 
+        {isMobile && (
+          <span className={show ? 'rotated' : ''}>
+            ▼
+          </span>
+        )}
       </h2>
-      {!isMobile || show ? content : null}
+      
+      <div className={`content-container ${!isMobile || show ? 'expanded' : 'collapsed'}`}>
+        {(!isMobile || show) && content}
+      </div>
     </div>
   )
 }

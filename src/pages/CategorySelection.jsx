@@ -8,6 +8,7 @@ import Emojipicker from "../components/EmojiPicker";
 
 const CategorySelection = () => {
     const [playerEmojis, setPlayerEmojis] = useState(null)
+    const [mode, setMode] = useState(null);
     const navigate = useNavigate();
 
     const handleStart = (selectedEmojis) =>{
@@ -17,6 +18,20 @@ const CategorySelection = () => {
     }
     return(
         <div className="category-selection-container">
+             <div className="mode-select">
+                <button onClick={() => setMode('pvp')}>Player vs Player</button>
+                <button onClick={() => setMode('ai')}>Player vs AI</button>
+            </div>
+              {mode && (
+                <EmojiPicker
+                    mode={mode}
+                    onStart={(selectedEmojis) => {
+                    localStorage.setItem('mode', mode);
+                    localStorage.setItem('playerEmojis', JSON.stringify(selectedEmojis));
+                    navigate('/game');
+                    }}
+                />
+                )}
             <div className="left-section">
                 <Emojipicker onStart={handleStart}/>
             </div>
