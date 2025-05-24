@@ -1,0 +1,54 @@
+/* Global.css */
+
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set a comfortable base font and background */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f7f7f7;
+  color: #222;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove list styles */
+ul, ol {
+  list-style: none;
+}
+
+/* Anchor styles */
+a {
+  color: #0078d4;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #005fa3;
+}
+
+/* Button styles */
+button {
+  font: inherit;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 4px;
+  background: #0078d4;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover {
+  background: #005fa3;
+}

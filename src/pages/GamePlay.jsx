@@ -43,7 +43,8 @@ const GamePlay = ()=>{
         <div className="emoji-list">{playerEmojis.player2?.join(' ')}</div>
       </div>
 
-      {winner && <WinnerModal winner={winner} />}
+      {winner && <WinnerModal winner={winner} mode={mode} />}
+
     </div>
     )
 }

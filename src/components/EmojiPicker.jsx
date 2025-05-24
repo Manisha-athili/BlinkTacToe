@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../styles/EmojiPicker.css';
 
 const categories = {
     Animals : ['🐶', '🐱', '🐵', '🐰'],

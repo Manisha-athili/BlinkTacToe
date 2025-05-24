@@ -153,6 +153,7 @@ const GameBoard = ({ playerEmojis, onWin, currentPlayer, setCurrentPlayer, mode 
         currentPlayer={currentPlayer} 
         playerEmojis={playerEmojis}
         className="status-bar"
+        mode={mode}
       />
       
       <div className="game-board">
