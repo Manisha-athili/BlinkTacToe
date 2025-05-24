@@ -21,6 +21,8 @@ const WinnerModal = ({ winner, mode }) => {
 
   // Trigger sparkles on mount
   useEffect(() => {
+      const winSound = new Audio('src/Sounds/win.wav');
+      winSound.play();
     setShowConfetti(true);
     const interval = setInterval(() => {
       const newSparkle = {

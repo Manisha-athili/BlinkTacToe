@@ -1,5 +1,5 @@
 
-# ✨ emoji clash
+# ✨ Emoji clash
 
 Emoji Clash (Blink Tac Toe)  is a modern, emoji-powered twist on the classic Tic-Tac-Toe game built with React. It supports both Player vs Player and Player vs AI modes, features animated visuals, category-based emoji selection, and a stunning end-game celebration.
 

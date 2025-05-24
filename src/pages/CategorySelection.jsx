@@ -11,7 +11,8 @@ const CategorySelection = () => {
 
     return(
        <div className="category-selection-container">
-  <h1>Emoji Clash</h1>
+  <h1 >Emoji Clash</h1>
+
 
   <div className="top-section">
     <div className="mode-select">
