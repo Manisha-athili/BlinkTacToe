@@ -56,7 +56,7 @@ const GameBoard = ({ playerEmojis, onWin, currentPlayer, setCurrentPlayer, mode 
   const handleClick = (ind) => {
     if (board[ind]) return;
 
-     const moveSound = new Audio('src/Sounds/click.mp3');
+     const moveSound = new Audio('/Sounds/click.mp3');
      moveSound.play();
     const usedEmojis = moves[currentPlayer]
       .map(i => board[i]?.emoji)
