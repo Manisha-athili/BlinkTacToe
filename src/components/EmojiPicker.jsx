@@ -5,52 +5,72 @@ const categories = {
     Food : ['🍕', '🍟', '🍔', '🍩'],
     Sports : ['⚽', '🏀', '🏈', '🎾'],
     Nature : ['🌲','🍃','🌻','🍂','🌈'],
-    Love: ['💗','💖','💘','💛','💝']
+    Love: ['💗','💖','💘','💛','💝'],
+    AI: ['🤖', '👾', '🛸', '🧠'] 
 
 };
 
-const Emojipicker=({onStart})=>{
-   const [player1,setPlayer1] = useState('');
-   const [player2,setPlayer2] = useState('');
+const Emojipicker=({mode,onStart})=>{
+   const [player1Cat,setPlayer1Cat] = useState('');
+   const [player2Cat,setPlayer2Cat] = useState('');
 
    const handleStart = ()=> {
-    if(player1 && player2 && player1 != player2){
-        onStart({
-            player1: categories[player1],
-            player2: categories[player2]
+    if(!player1Cat){
+        alert('Please select a category for Player 1.')
+        return
+    }
 
-        })  
-    }else {
-            alert('Please select categories Properly')
+    if(mode === 'pvp'){
+        if(!player1Cat || player1Cat === player2Cat){
+            alert("Please select a different category for Player 2.")
+            return;
         }
+        onStart({
+            player1: categories[player1Cat],
+            player2 : categories[player2Cat]
+        })
+    }else{
+        onStart({
+            player1: categories[player1Cat],
+            player2: categories['AI']
+        })
+    }
    }
-
     return(
         <>
-        <div>
-            <label htmlFor="play1">Player 1 Category:</label>
+        <div className="emoji-picker">
+            <div>
+                <label htmlFor="play1">Player 1 Category:</label>
             <select
-            
-            onChange={(e)=>setPlayer1(e.target.value)}>
+            value={player1Cat}
+            onChange={(e)=>setPlayer1Cat(e.target.value)}>
                 <option value="">Select</option>
                 {
-                    Object.keys(categories).filter((cat)=> cat !== player2).map((categorie)=>(
-                        <option key={categorie}>{categorie}</option>
+                    Object.keys(categories).filter((categorie)=>
+                        categorie !== player2Cat &&  categorie !== 'AI').map((categorie)=>(
+                        <option key={categorie} value={categorie}>{categorie}</option>
                     ))
                 }
             </select>
-        </div>
-        <div>
-            <label>Player 2 Category:</label>
-        <select onChange={(e) => setPlayer2(e.target.value)}>
-          <option value="">Select</option>
-          {Object.keys(categories).filter((cat)=> cat !== player1).map((cat) => (
-            <option key={cat}>{cat}</option>
-          ))}
-        </select>
+            </div>
+
+        
+        {
+            mode === 'pvp' && (
+                <div>
+                     <label>Player 2 Category:</label>
+                      <select onChange={(e) => setPlayer2Cat(e.target.value)}>
+                    <option value="">Select</option>
+                    {Object.keys(categories).filter((cat)=> cat !== player1Cat && cat !== 'AI').map((cat) => (
+                        <option key={cat} value={cat}>{cat}</option>
+                    ))}
+            </select>
+                </div>
+            )
+        }
+
          <button onClick={handleStart}>Start Game</button>
         </div>
-
         </>
     )
 }

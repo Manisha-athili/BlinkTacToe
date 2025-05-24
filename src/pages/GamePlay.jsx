@@ -8,16 +8,20 @@ const GamePlay = ()=>{
     const [playerEmojis, setPlayerEmojis] = useState({});
     const [winner, setWinner] = useState(null);
     const [currentPlayer,setCurrentPlayer] = useState('player1')
+    const [mode, setMode] = useState('pvp');
 
     useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('playerEmojis'));
-    if (data) setPlayerEmojis(data);
+    const savedEmojis = JSON.parse(localStorage.getItem('playerEmojis'));
+    if (savedEmojis) setPlayerEmojis(savedEmojis);
+     const savedMode = localStorage.getItem('mode');
+    if (savedEmojis) setPlayerEmojis(savedEmojis);
+    if (savedMode) setMode(savedMode);
   }, [])
 
 
     return(
          <div className="gameplay-container">
-      <div className="side-panel left">
+      <div className= {`side-panel left ${currentPlayer === 'player1' ? 'active-player' : ""}`}>
         <h3>Player 1</h3>
         <div className="emoji-list">{playerEmojis.player1?.join(' ')}</div>
       </div>
@@ -29,13 +33,13 @@ const GamePlay = ()=>{
             currentPlayer = {currentPlayer}
             setCurrentPlayer = {setCurrentPlayer}
             onWin={(winnerPlayer) => setWinner(winnerPlayer)}
-            
+            mode={mode}
           />
         )}
       </div>
 
-      <div className="side-panel right">
-        <h3>Player 2</h3>
+      <div className= {`side-panel right ${currentPlayer === 'player2'  ? "active-player":""}`}>
+        <h3>{(mode === 'pvp')? "Player 2": "AI Robot"}</h3>
         <div className="emoji-list">{playerEmojis.player2?.join(' ')}</div>
       </div>
 
