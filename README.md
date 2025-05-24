@@ -8,6 +8,8 @@ Emoji Clash (Blink Tac Toe)  is a modern, emoji-powered twist on the classic Tic
 ## Deployment 
 https://blink-tac-toe-git-main-manisha-athilis-projects.vercel.app/
 
+# DEMO
+https://www.loom.com/share/4a82c73605df4a23bee2806ff076a522?sid=2d1bb5b3-44df-4316-a1ea-423bf711c197 
 
 
 ## 🚀 Features
@@ -55,7 +57,7 @@ https://blink-tac-toe-git-main-manisha-athilis-projects.vercel.app/
 git clone https://github.com/Manisha-athili/BlinkTacToe
 cd blink-tac-toe
 npm install
-npm start
+npm run dev
 
 
 
